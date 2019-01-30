@@ -23,8 +23,6 @@ class CreateBooksTable extends Migration
             $table->unsignedInteger('level_id');
             $table->foreign('level_id')->references('id')->on('levels');
 
-            $table->unsignedInteger('discipline');
-            
             $table->timestamps();
             $table->softDeletes();
         });
