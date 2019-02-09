@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Services\LevelService as Service;
 
 class LevelController extends AbstractController
 {
-    public function __construct(LevelService $service)
+    public function __construct(Service $service)
     {
         $this->service = $service;
     }
@@ -29,7 +30,7 @@ class LevelController extends AbstractController
      */
     public function store(Request $request)
     {
-        //
+        return response()->json($this->service->store($request->all()));
     }
 
     /**
@@ -40,19 +41,19 @@ class LevelController extends AbstractController
      */
     public function show($id)
     {
-        //
+        return response()->json($this->service->getById($id));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        //
+        return response()->json($this->service->update($id, $request->all()));
     }
 
     /**
@@ -63,6 +64,6 @@ class LevelController extends AbstractController
      */
     public function destroy($id)
     {
-        //
+        return response()->json($this->service->delete($id));
     }
 }
