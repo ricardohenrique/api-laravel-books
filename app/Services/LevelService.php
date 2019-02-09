@@ -10,7 +10,7 @@ use Illuminate\Support\Collection;
  * @property ResourceBuilder resourceBuilder
  * @property ResourceModel resourceModel
  */
-class LevelService
+class LevelService extends AbstractService
 {
     /**
      * Constructor class
