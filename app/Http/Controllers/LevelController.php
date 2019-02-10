@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\LevelStoreRequest;
+use App\Http\Requests\LevelUpdateRequest;
 use App\Services\LevelService as Service;
 
 class LevelController extends AbstractController
@@ -25,10 +26,10 @@ class LevelController extends AbstractController
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param LevelStoreRequest $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(LevelStoreRequest $request)
     {
         return response()->json($this->service->store($request->all()));
     }
@@ -36,7 +37,7 @@ class LevelController extends AbstractController
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int  $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -47,11 +48,11 @@ class LevelController extends AbstractController
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @param  int  $id
+     * @param LevelUpdateRequest $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(LevelUpdateRequest $request, $id)
     {
         return response()->json($this->service->update($id, $request->all()));
     }
@@ -59,7 +60,7 @@ class LevelController extends AbstractController
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
